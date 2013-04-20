@@ -603,6 +603,7 @@ class ReferenceFrame(object):
         self._x = Vector([(Matrix([1, 0, 0]), self)])
         self._y = Vector([(Matrix([0, 1, 0]), self)])
         self._z = Vector([(Matrix([0, 0, 1]), self)])
+        self.is_activated = False
 
     def __getitem__(self, ind):
         """Returns basis vector for the provided index (index being an str)"""
@@ -669,6 +670,18 @@ class ReferenceFrame(object):
         w3 = trigsimp(expand(angvelmat[3]), recursive=True)
         return -Vector([(Matrix([w1, w2, w3]), self)])
 
+
+    def activate(self):
+		"""
+		Activates self as the Current ReferenceFrame for
+		visualization purposes. Current reference frame is used for 
+		visualization.
+		"""
+		
+		self.is_activated = True
+		return 'The Reference Frame: ' + self.name + 'has been activated'
+		
+		
     def ang_acc_in(self, otherframe):
         """Returns the angular acceleration Vector of the ReferenceFrame.
 

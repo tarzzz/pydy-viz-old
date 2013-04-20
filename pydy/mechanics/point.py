@@ -452,3 +452,53 @@ class Point(object):
                              ' defined in ReferenceFrame ' + frame.name)
         return self._vel_dict[frame]
 
+
+    def visualize(self,canvas):
+        """
+        Visualize a point on the Canvas using WebGL and IPython.
+        This method requires an IPython installation.
+        will return a NonImplementedError if IPython is not installed.
+        If IPython is not installed, however will not effect functionality 
+        of other methods.
+
+        Parameters
+        ==========
+
+        canvas: Canvas
+            The Canvas on which the point needs to be visualized.
+
+        Examples
+        ========
+
+        >>> from sympy.physics.mechanics import Point, ReferenceFrame
+        >>> N = ReferenceFrame('N')
+        >>> p1 = Point('p1')
+        >>> p1.set_vel(N, 10 * N.x)
+        >>> p1.vel(N)
+        10*N.x
+        
+        
+        """
+        
+        if not isinstance(canvas,Canvas):
+            return TypeError('Second Argument should be of Canvas object.')
+      
+        
+        canvas.initialize() #What is it supposed to do:
+        # --> Call initshaders and stuff
+        # --> get the current ReferenceFrame via this script:
+        # def get_current_instance(ReferenceFrame):
+        # a = [item for item in gc.get_referrers(ReferenceFrame) if isinstance(item,ReferenceFrame)
+        # check in a for is_activated flag.
+        #create a blank canvas with origin point marked by ReferenceFrame.Origin
+        
+        
+        pos = self.pos_from(current_reference_frame.Origin())
+        canvas.draw_sphere(radius=2,position = pos,color = say_red)
+        
+        
+                
+        
+        
+        
+            
