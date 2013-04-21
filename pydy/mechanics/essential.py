@@ -674,8 +674,8 @@ class ReferenceFrame(object):
     def activate(self):
 		"""
 		Activates self as the Current ReferenceFrame for
-		visualization purposes. Current reference frame is used for 
-		visualization.
+		visualization purposes. THe points and other mechanics
+		objects are made on canvas using activated ReferenceFrame
 		"""
 		
 		self.is_activated = True
