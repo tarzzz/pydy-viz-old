@@ -1,5 +1,5 @@
 #This module is an interaction module between Python and WebGL
-from JSWrapper import *
+
 
 class Canvas(object):
 	def __init(self,html_id,length=None,width=None)__:
