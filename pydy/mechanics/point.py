@@ -472,11 +472,11 @@ class Point(object):
 
         >>> from sympy.physics.mechanics import Point, ReferenceFrame
         >>> N = ReferenceFrame('N')
+        >>> N.activate()
+        The Reference Frame: N has been activated
         >>> p1 = Point('p1')
-        >>> p1.set_vel(N, 10 * N.x)
-        >>> p1.vel(N)
-        10*N.x
-        
+        >>> p1.set_pos(N.Origin(), 10 * N.x)
+        >>> p1.visualize()
         
         """
         
